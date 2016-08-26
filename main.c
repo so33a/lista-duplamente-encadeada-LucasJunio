@@ -17,6 +17,13 @@ int main () {
   if((aux2 = buscar(l, 21) ) != NULL) 
     removeNo(aux2);
   imprime(l);
+  
+  aux = buscar_menor (l);
+  
+  printf ("%d\n", aux -> item);
+  
+  lista_dup_ordedacao (l);
+  
   destroiLista(l);
 
   return 0;
