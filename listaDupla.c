@@ -84,10 +84,47 @@ void destroiLista(ListaDupla l) {
     l->head = t->next;
     l->z->next = t->next;
     l->head->prev = l->z;
-    free(t); 
+  free(t); 
     t = l->head;
   } 
   free(t);
   free(l);
 }
 
+link buscar_menor (ListaDupla l) 
+{
+  link menor, t; 	
+  t = l -> head;
+  menor = t;	
+
+  while (t != l -> z)
+  {
+     if (menor -> item > t -> item)  	 
+      	menor = t;
+      	
+     t = t -> next;      
+  }
+
+  return menor;
+}
+
+void lista_dup_ordedacao (ListaDupla l) 
+{
+  link ant, t, aux; 	
+
+  t = l -> head;
+  ant = t;	
+
+  while (t != l -> z)
+  {
+     if (ant -> item > t -> item)  	 
+     {
+       // alterar prev e next
+      	aux  = t;
+      	t = ant;
+      	ant = t;        
+     }      
+     
+     t = t -> next;      
+  }
+}
